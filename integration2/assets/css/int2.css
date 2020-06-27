@@ -1,0 +1,448 @@
+body {
+    background-color: #BF964B; 
+    margin:0;  
+    color:#fff;
+    width:100%;
+    overflow-x:hidden;
+    font-family: Quicksand;
+}
+img {
+    width:100%;  
+}
+section {
+    min-height:100vh;
+    width:100%;   
+}
+.header {
+    width:100%;
+    height:20vh;
+    background-color: #736C4D; 
+    position:fixed;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index:2;
+}
+.header .logo {
+    display:flex;
+    padding:40px 50px;
+}
+.olive { 
+    font-size:77px;   
+}
+.header .menu {
+    width:100%;
+   list-style:none;
+   display:flex;
+   justify-content: space-around;
+}
+.header li {
+    font-family: Quicksand;;
+    font-size: 36px;   
+}
+.header a {
+    text-decoration: none;
+    color:#fff;
+}
+.header .burger {
+    padding:auto 50px;
+    display:none;
+    cursor:pointer;
+}
+.header .part {
+    height:6px;
+    width: 40px;
+    margin: 5px;
+    background-color:white;
+}  
+.section1 {   
+    background-image: url("../img/imgSec1.png");
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: inset 0px 500px 500px rgba(0,0,0,.6);
+}
+.section1-container {
+    width:100%;
+    margin:auto;
+    padding-top:75vh;
+    text-align:center;   
+}
+.section1 .left {
+    font-family: Quicksand;
+    font-size: 40px;   
+}
+.right { 
+    font-size: 26px;
+    padding:5px; 
+    color:white;
+    border: none;
+    outline: none;
+    background-color: #BF964B;  
+    cursor:pointer;
+}
+.section2 {     
+    width:100%;    
+}
+.section2-container {
+    display:flex;
+    align-items: center;
+    padding:20px;
+    width:125%;
+    margin-left: -40%;
+}   
+.section2 .about-us {
+    padding-left: 2%;
+}
+.section2 .about-us-p {  
+        font-size: 28px;
+}
+.section3 {
+    background-color: #736C4D;
+}
+.section3-container {
+    width:80%;
+    margin:auto;
+    align-items: center;  
+}
+.section3-pic { 
+    padding-top:10vh;
+}
+.section3-text {
+    padding-top: 5vh;
+    padding-bottom:10vh; 
+}
+.section3 .head {
+    font-size:35px;  
+}
+.section3-p {
+    font-size:18px;  
+}
+.section4 {
+    margin-bottom: 10vh;
+}
+.section4 .dishes {
+    width: 80%;
+    margin:auto;
+    padding:5vh;  
+}
+.section4 .olive {
+    text-align:center
+}
+.section4 .plates { 
+    padding-top: 5vh;   
+    display:flex;
+}
+.section4 .plate { 
+    margin-right: 5%;
+}
+.section4 .name { 
+    text-align:center;  
+    font-size:28px;
+}
+.section4 .invite {
+    width:80%;
+    margin:auto;
+    text-align: center;   
+}
+.section4 .first-time {  
+    width:100%;   
+}
+.section4 .first {
+    font-size:40px;
+}
+.section4 .check {
+    font-size:25px;
+}
+.first-time-text {
+    padding-bottom:50px;
+}
+.section4 .cent {
+    font-size:50px;
+    border-radius: 8px;;
+    background-color: white;
+    width:50%;
+    margin:auto;
+    color:grey;
+}
+.section4-pic {
+    margin-top:10vh;
+    width:100%;
+}
+.section5 {
+    background-image: url("../img/imgSec5.png");   
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width:100%;
+}
+.section6 {
+    width:100%;
+}
+.section6-container {
+    width:90%; 
+    min-height:100vh;
+    display: flex;
+    align-items: center;
+    margin: auto;
+    text-align: center;
+    font-size: 70px;  
+    justify-content: center;
+}
+.section6 .vg {
+    padding-bottom:10%;
+}
+.section7 {
+    background-image: url("../img/imgMapF.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width:100%;
+}
+.section7 .address {
+    background-color: #736C4D;
+    opacity: 0.7;
+    left: 0;
+    width: 40%;   
+    min-height:100vh;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    z-index: 1;
+}
+.section7-text {
+    margin: auto;
+    width: 70%;
+}
+.section7-f {
+    font-size: 80px;
+}
+.section7-a {
+    font-size: 28px;
+    padding-top:1 5vh;
+    padding-bottom: 10vh;
+}
+.section7-h {
+    font-size: 28px;
+}    
+.section7 .mark {
+    position: absolute;
+    padding-left: 49vh;
+    padding-top: 30vh;
+}
+.section8-header {
+    background-color: #736C4D;
+    min-height: 15vh;
+    width: 100%;
+}
+.section8 .about {
+    width: 90%;
+    margin: auto;
+    padding-top: 10%;
+    display: flex;
+    
+    align-items: center;;
+}
+.big-about {
+    padding:0 5%;
+    flex: 8;
+    font-size: 30px;
+}
+.small-about {
+    padding:0 10px;
+    flex:2;
+    font-size: 25px;
+    display:flex;
+}
+.small-about>div {
+    flex:5;
+}
+.a-padding {
+    padding-bottom: 25px;
+}
+.section8-icons {   
+    width: 100%;
+    text-align: center;     
+}
+.section8-icons i {
+    color: white;
+}
+.section8 i {
+    padding:10% 2%;
+}
+.section8-footer {
+    background-color: #736C4D;
+    min-height: 15vh;
+    width: 100%;   
+}
+@media (max-width:1024px) {
+    .section2-container { 
+        display:block;  
+        padding:30px;
+        width:80%;
+        margin:auto;   
+    }
+    .section2 .about-us {
+        padding:30px;
+        width:80%;
+        margin:auto;
+    }
+    .header .burger {
+        display:block;
+        padding-right: 30px;
+    }
+    .header .menu {
+        position: absolute;
+        top: 16vh;
+        right: 0px;  
+        width:20%;
+        height:84vh;
+        opacity: 0.7;
+        display:flex; 
+        align-items: center;
+        flex-direction: column;
+        background-color: #736C4D; 
+    }
+    .header a {
+        font-size: 20px;
+    }
+    .section6-container { 
+        display: flex;
+        align-items: center;
+        text-align: center; 
+        margin: auto; 
+        width: 80%;
+        min-height: 100vh;
+        font-size: 60px;
+    }
+    .section7-f {
+        font-size: 50px;
+    }
+    .section7-a, .section7-h {
+        font-size: 20px;
+    }
+    
+    .section8 .about {
+        display: block;
+        text-align:center;
+    }
+    .big-about {
+        padding-bottom:10% ;
+        font-size: 30px;
+    }
+}
+
+@media (max-width: 600px) {
+    .section7-f {
+        font-size: 40px;
+    }
+    .section7-a {
+        font-size:18px;
+    }
+    .section7-h {
+        font-size:18px;
+    }
+    .section6-container {   
+        display: flex;
+        align-items: center;
+        text-align: center; 
+        margin: auto; 
+        width: 80%;
+        min-height: 100vh;
+        font-size: 40px;
+    }
+    .section2 .olive {
+        font-size:40px;   
+    }
+    .section2 .about-us-p {
+            font-size: 20px;
+    }
+    .header .menu {
+        display:none;
+    }
+
+    .header {
+        width:100%;
+        height:12vh;
+        background-color: #736C4D; 
+        position:fixed;
+        display:flex;
+        justify-content: space-around;
+        align-items: center;
+        z-index:2;
+    }
+    .header .olive {
+        font-size: 50px;
+        padding-top: 3vh;
+    }
+}
+@media (min-width:1024px) {
+    .section1-container {
+        width:80%;
+        margin:auto;
+        padding-top:75vh;
+        padding-bottom: 15vh;
+        text-align:center;
+        display:flex;
+        flex-direction: column;
+    }
+    .section1 .left {    
+        font-size: 80px; 
+    }
+    .section1 .right { 
+        font-size: 32px;   
+        padding:10px;
+        align-self: flex-end; 
+        cursor:pointer;
+    }
+    .section3-container {
+        width:80%;
+        margin:auto;
+        display:flex;
+        justify-content: space-around;
+        align-items:center;   
+    }  
+    .section3-pic {
+        width:40%;
+        margin-top:15vh;
+        padding:10px;
+    }   
+    .section3-text {
+        width:50%;
+        margin-top:18vh;
+        padding:10px;
+    }
+    .section3 .head {    
+        font-size:50px;  
+    }
+    .section3-p {
+        font-size:28px;  
+    }
+    .section4 .invite {
+        display:flex;
+        align-items: center;
+        width:115%;
+        margin-right:-30%;
+    }
+    .section4 .first-time {
+        padding-right: 5%;
+        width:50%;
+    }
+    .section4 .first {
+        font-size:60px;
+    }  
+    .section4 .check {
+        font-size:30px;
+    }
+    .first-time-text {
+        padding-bottom:50px;
+    }
+    .section4 .cent {
+        width:100%;
+        font-size:80px;
+        text-align:center;
+        border-radius: 8px;;
+        background-color: white;
+        color:grey;
+    }
+}
