@@ -19,7 +19,8 @@ body {
     width: 40px;
     height:40px;
     background-color: red; 
-
+    top:200px;
+    left:200px;
 }
 
 .enemy1 {
@@ -52,7 +53,7 @@ body {
 .enemy4 {
     position: absolute;
     width: 40px;
-    height:40px;
+    height: 40px;
     background-color: blue; 
     top: 320px;
     left: 420px;
@@ -61,11 +62,23 @@ body {
 .enemy5 {
     position: absolute;
     width: 40px;
-    height:40px;
+    height: 40px;
     background-color: blue; 
     top: 150px;
     left: 460px;  
 }
+
+
+.bang {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: orange;
+ 
+}
+
+
 
 
 /* function Enemy(name, top, left) {

@@ -5,6 +5,7 @@ let enemy2 = document.querySelector(".enemy2");
 let enemy3 = document.querySelector(".enemy3");
 let enemy4 = document.querySelector(".enemy4");
 let enemy5 = document.querySelector(".enemy5");
+//let bomb = document.querySelector("#bomb");
 
 
 let gWidth = parseInt(window.getComputedStyle(gameZone).getPropertyValue("width"));
@@ -47,11 +48,19 @@ document.onkeydown = function(e){
             pLeft += 20;
             player.style.left = pLeft + "px";
         }
+    } else if (e.keyCode == '32') {  
+        let bomb = document.querySelector("#bomb");
+        bomb.classList.add("bang");
+        bomb.style.left = pLeft+"px";
+        bomb.style.top = pTop+"px";
+        console.log(bomb.style.top);
+        console.log(bomb.style.left);
     }
 };   
 
 
 // enemy move
+
 window.setInterval(function(){
     let i = Math.floor(Math.random() * 4);
         if (i==0) {
@@ -109,3 +118,9 @@ window.setInterval(function(){
         };
         
 },500);
+
+/*
+window.onkeydown = function (e){
+    console.log(e.keyCode);
+}
+*/
