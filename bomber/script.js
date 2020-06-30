@@ -5,14 +5,12 @@ let enemy2 = document.querySelector(".enemy2");
 let enemy3 = document.querySelector(".enemy3");
 let enemy4 = document.querySelector(".enemy4");
 let enemy5 = document.querySelector(".enemy5");
-//let bomb = document.querySelector("#bomb");
-
+let bomb = document.querySelector("#bomb");
 
 let gWidth = parseInt(window.getComputedStyle(gameZone).getPropertyValue("width"));
 let gHeight = parseInt(window.getComputedStyle(gameZone).getPropertyValue("height"));
 let pTop = parseInt(window.getComputedStyle(player).getPropertyValue("top"));
 let pLeft = parseInt(window.getComputedStyle(player).getPropertyValue("left"));
-
 
 let e1Top = parseInt(window.getComputedStyle(enemy1).top);
 let e1Left = parseInt(window.getComputedStyle(enemy1).left);
@@ -24,7 +22,6 @@ let e4Top = parseInt(window.getComputedStyle(enemy4).top);
 let e4Left = parseInt(window.getComputedStyle(enemy4).left);
 let e5Top = parseInt(window.getComputedStyle(enemy5).top);
 let e5Left = parseInt(window.getComputedStyle(enemy5).left);
-
 
 // player move
 document.onkeydown = function(e){
@@ -49,18 +46,21 @@ document.onkeydown = function(e){
             player.style.left = pLeft + "px";
         }
     } else if (e.keyCode == '32') {  
-        let bomb = document.querySelector("#bomb");
+// bomb appear        
         bomb.classList.add("bang");
         bomb.style.left = pLeft+"px";
         bomb.style.top = pTop+"px";
-        console.log(bomb.style.top);
-        console.log(bomb.style.left);
+// bomb disappear
+        window.setTimeout(function(){
+            bomb.classList.remove("bang");
+        }, 3000);
     }
 };   
 
 
-// enemy move
 
+
+// enemy move
 window.setInterval(function(){
     let i = Math.floor(Math.random() * 4);
         if (i==0) {
