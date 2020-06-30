@@ -1,0 +1,89 @@
+body {
+    margin:0;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    height:100vh;
+}
+.game-zone {
+    border: 2px solid grey;
+    width: 600px;
+    height:600px;
+    background-color: lightgrey;
+    position: relative; 
+    margin:auto;
+    
+}
+.player {  
+    position: absolute;
+    width: 40px;
+    height:40px;
+    background-color: red; 
+
+}
+
+.enemy1 {
+    position: absolute;
+    width: 40px;
+    height:40px;
+    background-color: blue; 
+    top: 100px;
+    left: 100px;
+}
+
+.enemy2 {
+    position: absolute;
+    width: 40px;
+    height:40px;
+    background-color: blue; 
+    top: 160px;
+    left: 160px;
+}
+
+.enemy3 {
+    position: absolute;
+    width: 40px;
+    height:40px;
+    background-color: blue; 
+    top: 280px;
+    left: 160px;
+}
+
+.enemy4 {
+    position: absolute;
+    width: 40px;
+    height:40px;
+    background-color: blue; 
+    top: 320px;
+    left: 420px;
+}
+
+.enemy5 {
+    position: absolute;
+    width: 40px;
+    height:40px;
+    background-color: blue; 
+    top: 150px;
+    left: 460px;  
+}
+
+
+/* function Enemy(name, top, left) {
+    this.name = name;
+    this.top = top;
+    this.left = left;
+    window.setInterval(function(){
+        let i = Math.floor(Math.random() * 4);
+            if (i==0) {
+                (this.name).style.top = (this.top-20) + "px";
+            } else if (i==1) {
+                this.name.style.top = (this.top+20) + "px";
+            } else if (i==2) {
+                this.name.style.left = (this.left-20) + "px";
+            } else if (i==3) {
+                this.name.style.left = (this.left+20) + "px";
+            }       
+    },500);
+}   
+new Enemy(enemy1, e1Top, e1Left); 
+*/
