@@ -25,6 +25,7 @@ let e4Left = parseInt(window.getComputedStyle(enemy4).left);
 let e5Top = parseInt(window.getComputedStyle(enemy5).top);
 let e5Left = parseInt(window.getComputedStyle(enemy5).left);
 
+let playerPH = 10;
 
 //---------start of player move--------------
 document.onkeydown = function(e){
@@ -48,7 +49,8 @@ document.onkeydown = function(e){
             pLeft += 20;
             player.style.left = pLeft + "px";
         }
-//----------end of player move-------------------        
+//----------end of player move-------------------       
+
     } else if (e.keyCode == '32') {         
     // bomb appears        
         bomb.classList.add("bang");
@@ -74,8 +76,10 @@ document.onkeydown = function(e){
             } else if ((bLeft+110) > e4Left && e4Left > (bLeft-50) && (bTop+110) > e4Top && e4Top > (bTop-50)) {
                 enemy4.classList.remove("enemy4");
             } else if ((bLeft+110) > e5Left && e5Left > (bLeft-50) && (bTop+110) > e5Top && e5Top > (bTop-50)) {
-                enemy5.classList.remove("enemy5");
-            }             
+                enemy5.classList.remove("enemy5");   
+                          
+            } 
+                      
     // bomb explode in 3 seconds 
             bomb.classList.remove("bang");
 // if I dont do the following, the next time I throw a bomb the size stays double
@@ -84,6 +88,26 @@ document.onkeydown = function(e){
             
         }, 3000);
     } // end of else if e.keyCode == '32'
+//---try----- player lose PH ---
+    else if ((e1Left+40) > pLeft && pLeft > (e1Left-40) && (e1Top+40) > pTop && pTop > (e1Top-40)) {
+        playerPH--;
+        alert("playerPH: "+playerPH--);
+        console.log("hello");
+    } else if ((e2Left+40) > pLeft && pLeft > (e2Left-40) && (e2Top+40) > pTop && pTop > (e2Top-40)) {
+        playerPH--;
+        alert("playerPH: "+playerPH--);
+    } else if ((e3Left+40) > pLeft && pLeft > (e3Left-40) && (e3Top+40) > pTop && pTop > (e3Top-40)) {
+        playerPH--;
+        alert("playerPH: "+playerPH--);
+    } else if ((e4Left+40) > pLeft && pLeft > (e4Left-40) && (e4Top+40) > pTop && pTop > (e4Top-40)) {
+        playerPH--;
+        alert("playerPH: "+playerPH--);
+    } else if ((e5Left+40) > pLeft && pLeft > (e5Left-40) && (e5Top+40) > pTop && pTop > (e5Top-40)) {
+        playerPH--;
+        alert("playerPH: "+playerPH--);
+    }
+
+//---try-------
 };   //---------------------end of document.onkeydown-----------
 
 
@@ -149,58 +173,6 @@ window.setInterval(function(){
 //-----------end of enemy move----------------------
 
 
-/*
-//-----start of bomb kill enemy--------------
-document.addEventListener("keydown", function(e){
-    if (e.keyCode == '32') {         
-// bomb appears        
-        bomb.classList.add("bang");
-        var bLeft = bomb.style.left = pLeft+"px";
-        var bTop = bomb.style.top = pTop+"px";
-        
-        bLeft = parseInt(bLeft);
-        bTop = parseInt(bTop);
- 
-// bomb size doubling in 2 seconds
-        window.setTimeout(function(){
-            bomb.style.width = 80+"px";
-            bomb.style.height= 80+ "px"; 
-        }, 2000);
-        window.setTimeout(function(){
-// kill enemies here (bomb size actually didnt double when it kills)
-            if ((bLeft+40) > e1Left && e1Left > (bLeft-40) && (bTop+40) > e1Top && e1Top > (bTop-40)) {
-                enemy1.classList.remove("enemy1");
-            } else if ((bLeft+40) > e2Left && e2Left > (bLeft-40) && (bTop+40) > e2Top && e2Top > (bTop-40)) {
-                enemy2.classList.remove("enemy2");
-            } else if ((bLeft+40) > e3Left && e3Left > (bLeft-40) && (bTop+40) > e3Top && e3Top > (bTop-40)) {
-                enemy3.classList.remove("enemy3");
-            } else if ((bLeft+40) > e4Left && e4Left > (bLeft-40) && (bTop+40) > e4Top && e4Top > (bTop-40)) {
-                enemy4.classList.remove("enemy4");
-            } else if ((bLeft+40) > e5Left && e5Left > (bLeft-40) && (bTop+40) > e5Top && e5Top > (bTop-40)) {
-                enemy5.classList.remove("enemy5");
-            } 
-
-            
-            console.log(bLeft+40); 240
-            console.log(e1Left); 
-            console.log(bLeft-40);
-            console.log(bTop+40);
-            console.log(e1Top);
-            console.log(bTop-40)
-            
-        
-         
-// bomb explode in 3 seconds 
-            bomb.classList.remove("bang");
-// if I dont do the following, the next time I throw a bomb the size stays double
-            bomb.style.width = 40+"px";
-            bomb.style.height= 40+ "px";
-            
-        }, 3000);
-    }
-})
-//----------end of bomb kill enemy-------------------
-*/
 
 
 
@@ -266,4 +238,30 @@ if (bLeft+40 > e1Left > bLeft-40 && bTop+40 > e1Top > bTop-40) {
         enemy5.classList.remove("enemy5");
     }    
 -------------------------------------             
+*/
+
+
+/*
+
+// player loser PH if touched by enemy
+document.onkeydown = function(e) {
+
+
+    if ((e1Left+40) > pLeft && pLeft > (e1eft-40) && (e1Top+40) > pTop && pTop > (e1Top-40)) {
+        playerPH--;
+        alert("playerPH: "+playerPH--);
+    } else if ((e2Left+40) > pLeft && pLeft > (e2Left-40) && (e2Top+40) > pTop && pTop > (e2Top-40)) {
+        playerPH--;
+        alert("playerPH: "+playerPH--);
+    } else if ((e3Left+40) > pLeft && pLeft > (e3Left-40) && (e3Top+40) > pTop && pTop > (e3Top-40)) {
+        playerPH--;
+        alert("playerPH: "+playerPH--);
+    } else if ((e4Left+40) > pLeft && pLeft > (e4Left-40) && (e4Top+40) > pTop && pTop > (e4Top-40)) {
+        playerPH--;
+        alert("playerPH: "+playerPH--);
+    } else if ((e5Left+40) > pLeft && pLeft > (e5Left-40) && (e5Top+40) > pTop && pTop > (e5Top-40)) {
+        playerPH--;
+        alert("playerPH: "+playerPH--);
+    }
+}    
 */
