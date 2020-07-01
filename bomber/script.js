@@ -115,12 +115,8 @@ window.setInterval(function(){
 
 
 
-
-
 document.addEventListener("keydown", function(e){
-
-    if (e.keyCode == '32') {  
-        
+    if (e.keyCode == '32') {         
 // bomb appears        
         bomb.classList.add("bang");
         var bLeft = bomb.style.left = pLeft+"px";
@@ -149,30 +145,16 @@ document.addEventListener("keydown", function(e){
             } 
 
             /*
-            console.log("bomb top: "+bTop);
-            console.log("bomb left: "+bLeft);
-            console.log("enemy1 top: "+e1Top);
-            console.log("enemy1 left: "+e1Left);
-            */
             console.log(bLeft+40); 240
             console.log(e1Left); 
             console.log(bLeft-40);
             console.log(bTop+40);
             console.log(e1Top);
             console.log(bTop-40)
-            
-
-/*           
-// without if conditions all enemies can be killed when bomb explodes, that means my if conditions have problems
-enemy1.classList.remove("enemy1");
-enemy2.classList.remove("enemy2");
-enemy3.classList.remove("enemy3");
-enemy4.classList.remove("enemy4");
-enemy5.classList.remove("enemy5");
-*/
-            
-           
-// bomb disappear in 3 seconds and size back to normal
+            */
+        
+         
+// bomb explode in 3 seconds 
             bomb.classList.remove("bang");
 // if I dont do the following, the next time I throw a bomb the size stays double
             bomb.style.width = 40+"px";
