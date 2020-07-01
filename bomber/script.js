@@ -52,6 +52,10 @@ document.onkeydown = function(e){
         bomb.style.top = pTop+"px";
 // bomb disappear
         window.setTimeout(function(){
+            bomb.style.width = 100+"px";
+            bomb.style.height= 100+ "px"; 
+        }, 2000);
+        window.setTimeout(function(){
             bomb.classList.remove("bang");
         }, 3000);
     }
@@ -119,8 +123,15 @@ window.setInterval(function(){
         
 },500);
 
-/*
-window.onkeydown = function (e){
-    console.log(e.keyCode);
+
+
+/*  thoughts of player ph and enemy being killed
+
+if (eLeft+40 > pLeft > eLeft-40 && eTop+40 > pTop > eTop-40) {
+    player ph--;
+}
+
+if (bLeft+40 > eLeft > bLeft-40 && bTop+40 > eTop > bTop-40) {
+    remove enemy class;
 }
 */
