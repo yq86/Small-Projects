@@ -46,17 +46,19 @@ document.onkeydown = function(e){
             player.style.left = pLeft + "px";
         }
     } else if (e.keyCode == '32') {  
-// bomb appear        
+// bomb appears        
         bomb.classList.add("bang");
         bomb.style.left = pLeft+"px";
         bomb.style.top = pTop+"px";
-// bomb disappear
+// bomb disappears and size doubling
         window.setTimeout(function(){
-            bomb.style.width = 100+"px";
-            bomb.style.height= 100+ "px"; 
+            bomb.style.width = 80+"px";
+            bomb.style.height= 80+ "px"; 
         }, 2000);
         window.setTimeout(function(){
             bomb.classList.remove("bang");
+            bomb.style.width = 40+"px";
+            bomb.style.height= 40+ "px";
         }, 3000);
     }
 };   
