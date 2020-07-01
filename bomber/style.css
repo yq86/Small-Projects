@@ -71,11 +71,12 @@ body {
 
 .bang {
     position: absolute;
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     background-color: red;
     animation: blink 1s infinite; 
+    box-shadow: 0 0 8px 8px red; 
 }
 @keyframes blink{
     0%{opacity:0}

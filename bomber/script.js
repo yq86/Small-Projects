@@ -26,7 +26,7 @@ let e5Top = parseInt(window.getComputedStyle(enemy5).top);
 let e5Left = parseInt(window.getComputedStyle(enemy5).left);
 
 
-// player move
+//---------start of player move--------------
 document.onkeydown = function(e){
     if (e.keyCode == '38') { // up
         if (pTop > 0){
@@ -48,13 +48,47 @@ document.onkeydown = function(e){
             pLeft += 20;
             player.style.left = pLeft + "px";
         }
-    } 
+//----------end of player move-------------------        
+    } else if (e.keyCode == '32') {         
+    // bomb appears        
+        bomb.classList.add("bang");
+        var bLeft = bomb.style.left = pLeft+"px";
+        var bTop = bomb.style.top = pTop+"px";
+        
+        bLeft = parseInt(bLeft);
+        bTop = parseInt(bTop);
+     
+    // bomb size doubling in 2 seconds
+        window.setTimeout(function(){
+            bomb.style.width = 100+"px";
+            bomb.style.height= 100+ "px"; 
+        }, 2000);
+        window.setTimeout(function(){
+    // kill enemies down here (bomb size actually didnt double when it kills)
+            if ((bLeft+110) > e1Left && e1Left > (bLeft-50) && (bTop+110) > e1Top && e1Top > (bTop-50)) {
+                enemy1.classList.remove("enemy1");
+            } else if ((bLeft+110) > e2Left && e2Left > (bLeft-50) && (bTop+110) > e2Top && e2Top > (bTop-50)) {
+                enemy2.classList.remove("enemy2");
+            } else if ((bLeft+110) > e3Left && e3Left > (bLeft-50) && (bTop+110) > e3Top && e3Top > (bTop-50)) {
+                enemy3.classList.remove("enemy3");
+            } else if ((bLeft+110) > e4Left && e4Left > (bLeft-50) && (bTop+110) > e4Top && e4Top > (bTop-50)) {
+                enemy4.classList.remove("enemy4");
+            } else if ((bLeft+110) > e5Left && e5Left > (bLeft-50) && (bTop+110) > e5Top && e5Top > (bTop-50)) {
+                enemy5.classList.remove("enemy5");
+            }             
+    // bomb explode in 3 seconds 
+            bomb.classList.remove("bang");
+// if I dont do the following, the next time I throw a bomb the size stays double
+            bomb.style.width = 50+"px";
+            bomb.style.height= 50+ "px";
+            
+        }, 3000);
+    } // end of else if e.keyCode == '32'
+};   //---------------------end of document.onkeydown-----------
 
-};   
 
 
-// enemy move
-
+//----------------start of enemy move----------------------
 window.setInterval(function(){
     let i = Math.floor(Math.random() * 4);
         if (i==0) {
@@ -112,9 +146,11 @@ window.setInterval(function(){
         };
         
 },500);
+//-----------end of enemy move----------------------
 
 
-
+/*
+//-----start of bomb kill enemy--------------
 document.addEventListener("keydown", function(e){
     if (e.keyCode == '32') {         
 // bomb appears        
@@ -144,14 +180,14 @@ document.addEventListener("keydown", function(e){
                 enemy5.classList.remove("enemy5");
             } 
 
-            /*
+            
             console.log(bLeft+40); 240
             console.log(e1Left); 
             console.log(bLeft-40);
             console.log(bTop+40);
             console.log(e1Top);
             console.log(bTop-40)
-            */
+            
         
          
 // bomb explode in 3 seconds 
@@ -163,7 +199,8 @@ document.addEventListener("keydown", function(e){
         }, 3000);
     }
 })
-
+//----------end of bomb kill enemy-------------------
+*/
 
 
 
