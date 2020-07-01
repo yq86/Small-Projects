@@ -125,30 +125,53 @@ document.addEventListener("keydown", function(e){
         bomb.classList.add("bang");
         var bLeft = bomb.style.left = pLeft+"px";
         var bTop = bomb.style.top = pTop+"px";
-
+        
+        bLeft = parseInt(bLeft);
+        bTop = parseInt(bTop);
+ 
 // bomb size doubling in 2 seconds
         window.setTimeout(function(){
             bomb.style.width = 80+"px";
             bomb.style.height= 80+ "px"; 
         }, 2000);
         window.setTimeout(function(){
-// suppose to kill enemies here
-        if (bLeft+40 > e1Left > bLeft-40 && bTop+40 > e1Top > bTop-40) {
-            enemy1.classList.remove("enemy1");
-            } else if (bLeft+40 > e2Left > bLeft-40 && bTop+40 > e2Top > bTop-40){
+// kill enemies here (bomb size actually didnt double when it kills)
+            if ((bLeft+40) > e1Left && e1Left > (bLeft-40) && (bTop+40) > e1Top && e1Top > (bTop-40)) {
+                enemy1.classList.remove("enemy1");
+            } else if ((bLeft+40) > e2Left && e2Left > (bLeft-40) && (bTop+40) > e2Top && e2Top > (bTop-40)) {
                 enemy2.classList.remove("enemy2");
-            } else if (bLeft+40 > e3Left > bLeft-40 && bTop+40 > e3Top > bTop-40){
+            } else if ((bLeft+40) > e3Left && e3Left > (bLeft-40) && (bTop+40) > e3Top && e3Top > (bTop-40)) {
                 enemy3.classList.remove("enemy3");
-            } else if (bLeft+40 > e4Left > bLeft-40 && bTop+40 > e4Top > bTop-40){
+            } else if ((bLeft+40) > e4Left && e4Left > (bLeft-40) && (bTop+40) > e4Top && e4Top > (bTop-40)) {
                 enemy4.classList.remove("enemy4");
-            } else if (bLeft+40 > e5Left > bLeft-40 && bTop+40 > e5Top > bTop-40){
+            } else if ((bLeft+40) > e5Left && e5Left > (bLeft-40) && (bTop+40) > e5Top && e5Top > (bTop-40)) {
                 enemy5.classList.remove("enemy5");
             } 
-             console.log("bomb: "+bTop);
-             console.log("bomb: "+bLeft);
-             console.log("enemy1: "+e1Top);
-             console.log("enemy1: "+e1Left);
-             
+
+            /*
+            console.log("bomb top: "+bTop);
+            console.log("bomb left: "+bLeft);
+            console.log("enemy1 top: "+e1Top);
+            console.log("enemy1 left: "+e1Left);
+            */
+            console.log(bLeft+40); 240
+            console.log(e1Left); 
+            console.log(bLeft-40);
+            console.log(bTop+40);
+            console.log(e1Top);
+            console.log(bTop-40)
+            
+
+/*           
+// without if conditions all enemies can be killed when bomb explodes, that means my if conditions have problems
+enemy1.classList.remove("enemy1");
+enemy2.classList.remove("enemy2");
+enemy3.classList.remove("enemy3");
+enemy4.classList.remove("enemy4");
+enemy5.classList.remove("enemy5");
+*/
+            
+           
 // bomb disappear in 3 seconds and size back to normal
             bomb.classList.remove("bang");
 // if I dont do the following, the next time I throw a bomb the size stays double
