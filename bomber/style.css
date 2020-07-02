@@ -7,8 +7,8 @@ body {
 }
 .game-zone {
     border: 2px solid grey;
-    width: 600px;
-    height:600px;
+    width: 670px;
+    height:670px;
     background-color: lightgrey;
     position: relative; 
     margin:auto;
@@ -18,8 +18,8 @@ body {
 }
 .player {  
     position: absolute;
-    width: 40px;
-    height:40px;
+    width: 50px;
+    height:50px;
     background-color: gold; 
     top:200px;
     left:200px;
@@ -27,8 +27,8 @@ body {
 
 .enemy1 {
     position: absolute;
-    width: 40px;
-    height:40px;
+    width: 50px;
+    height:50px;
     background-color: blue; 
     top: 100px;
     left: 100px;
@@ -36,8 +36,8 @@ body {
 
 .enemy2 {
     position: absolute;
-    width: 40px;
-    height:40px;
+    width: 50px;
+    height:50px;
     background-color: blue; 
     top: 160px;
     left: 160px;
@@ -45,8 +45,8 @@ body {
 
 .enemy3 {
     position: absolute;
-    width: 40px;
-    height:40px;
+    width: 50px;
+    height:50px;
     background-color: blue; 
     top: 280px;
     left: 160px;
@@ -55,8 +55,8 @@ body {
 
 .enemy4 {
     position: absolute;
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     background-color: blue; 
     top: 320px;
     left: 420px;
@@ -64,8 +64,8 @@ body {
 
 .enemy5 {
     position: absolute;
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     background-color: blue; 
     top: 150px;
     left: 460px;  

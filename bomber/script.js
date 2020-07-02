@@ -2,11 +2,14 @@
 let gameZone = document.querySelector(".game-zone");
 let player = document.querySelector(".player");
 let bomb = document.querySelector("#bomb");
+
+/*  -----need these codes without forEach function------
 let enemy1 = document.querySelector(".enemy1");
 let enemy2 = document.querySelector(".enemy2");
 let enemy3 = document.querySelector(".enemy3");
 let enemy4 = document.querySelector(".enemy4");
 let enemy5 = document.querySelector(".enemy5");
+*/
 
 let gWidth = parseInt(window.getComputedStyle(gameZone).getPropertyValue("width"));
 let gHeight = parseInt(window.getComputedStyle(gameZone).getPropertyValue("height"));
@@ -14,6 +17,7 @@ let gHeight = parseInt(window.getComputedStyle(gameZone).getPropertyValue("heigh
 let pTop = parseInt(window.getComputedStyle(player).getPropertyValue("top"));
 let pLeft = parseInt(window.getComputedStyle(player).getPropertyValue("left"));
 
+/*  -----need these codes without forEach function------
 let e1Top = parseInt(window.getComputedStyle(enemy1).top);
 let e1Left = parseInt(window.getComputedStyle(enemy1).left);
 let e2Top = parseInt(window.getComputedStyle(enemy2).top);
@@ -24,8 +28,14 @@ let e4Top = parseInt(window.getComputedStyle(enemy4).top);
 let e4Left = parseInt(window.getComputedStyle(enemy4).left);
 let e5Top = parseInt(window.getComputedStyle(enemy5).top);
 let e5Left = parseInt(window.getComputedStyle(enemy5).left);
-
+*/
 let playerPH = 10;
+
+let enemies = document.querySelectorAll(".enemy");
+
+function getStyle(element, property){
+    return (parseInt(window.getComputedStyle(element).getPropertyValue(property)));
+};
 
 //--------------player moves -------------------
 document.onkeydown = function(e){
@@ -35,7 +45,7 @@ document.onkeydown = function(e){
             player.style.top = pTop + "px";
         }
     } else if (e.keyCode == '40') { // down
-        if (pTop < (gHeight-40)){
+        if (pTop < (gHeight-50)){
             pTop += 20;
             player.style.top = pTop + "px";
         }       
@@ -45,7 +55,7 @@ document.onkeydown = function(e){
             player.style.left = pLeft + "px";
         }  
     } else if (e.keyCode == '39') { // right
-        if (pLeft < (gWidth-40)) {
+        if (pLeft < (gWidth-50)) {
             pLeft += 20;
             player.style.left = pLeft + "px";
         }
@@ -63,33 +73,25 @@ document.onkeydown = function(e){
         }, 2000);
         window.setTimeout(function(){
 //------------ kill enemies here (bomb size actually didnt double when it kills, need to enlarge the condition zone to kill easily)------
+            enemies.forEach(function(enemy) {
+                if (bLeft+110 > getStyle(enemy, "left") && getStyle(enemy, "left") > bLeft-50 && bTop+110 > getStyle(enemy, "top") && getStyle(enemy, "top") > bTop-50) {
+                    gameZone.removeChild(enemy); 
+                };
+            });
+            /*  -----need these codes without forEach function------
             if ((bLeft+110) > e1Left && e1Left > (bLeft-50) && (bTop+110) > e1Top && e1Top > (bTop-50)) {
-                enemy1.classList.remove("enemy1");
-                //enemy1.style.display = "none";
-                //enemy1.style.position = "relative";
-                //enemy1.parentNode.removeChild(enemy1);
+                gameZone.removeChild(enemy1);
             } else if ((bLeft+110) > e2Left && e2Left > (bLeft-50) && (bTop+110) > e2Top && e2Top > (bTop-50)) {
-                enemy2.classList.remove("enemy2");
-                //enemy2.style.display = "none";
-                //enemy2.style.position = "relative";
-                //enemy2.parentNode.removeChild(enemy2);
+                gameZone.removeChild(enemy2);
             } else if ((bLeft+110) > e3Left && e3Left > (bLeft-50) && (bTop+110) > e3Top && e3Top > (bTop-50)) {
-                enemy3.classList.remove("enemy3");
-                //enemy3.style.display = "none";
-                //enemy3.style.position = "relative";
-                //enemy3.parentNode.removeChild(enemy3);
+                gameZone.removeChild(enemy3);
             } else if ((bLeft+110) > e4Left && e4Left > (bLeft-50) && (bTop+110) > e4Top && e4Top > (bTop-50)) {
-                enemy4.classList.remove("enemy4");
-                //enemy4.style.display = "none";
-                //enemy4.style.position = "relative";
-                enemy4.parentNode.removeChild(enemy4);
+                gameZone.removeChild(enemy4);
             } else if ((bLeft+110) > e5Left && e5Left > (bLeft-50) && (bTop+110) > e5Top && e5Top > (bTop-50)) {
-                enemy5.classList.remove("enemy5");   
-                //enemy5.style.display = "none";
-                //enemy5.style.position = "relative";
-                //enemy5.parentNode.removeChild(enemy5);       
+                gameZone.removeChild(enemy5);  
+            */
 //----------player lose ph if exploded by bomb--------------------                                  
-            };           
+                       
             if ((bLeft+110) > pLeft && pLeft > (bLeft-50) && (bTop+110) > pTop && pTop > (bTop-50)) {
                 player.innerText = playerPH--;                                
             };         
@@ -98,12 +100,35 @@ document.onkeydown = function(e){
 //----------------- if I dont do the following, the next time I throw a bomb the size stays double------------------
             bomb.style.width = 50+"px";
             bomb.style.height= 50+ "px";          
-        }, 3000);
+        }, 3000); // end of setTimeOut
     } // end of else if e.keyCode == '32'
 };   // end of document.onkeydown-----------
+
 //----------------enemies move----------------------
 window.setInterval(function(){
-    let i = Math.floor(Math.random() * 4);
+    enemies.forEach(function(enemy){
+        let i = Math.floor(Math.random() * 4);
+        if (i==0) { // up
+            if (getStyle(enemy,"top") > 20 ) {
+                enemy.style.top = getStyle(enemy,"top")-20 + "px"; 
+            }                     
+        } else if (i==1) { // down
+            if ( getStyle(enemy,"top") < 600 ) {
+                enemy.style.top = getStyle(enemy,"top")+20 + "px";  
+            }           
+        } else if (i==2) { // left
+            if (getStyle(enemy,"left") > 20 ) {
+                enemy.style.left = getStyle(enemy,"left")-20 + "px";
+            } 
+                        
+        } else if (i==3) { // right
+            if (getStyle(enemy,"left") < 600){
+            enemy.style.left = getStyle(enemy,"left")+20 + "px";   
+            }                 
+        }; 
+    })
+
+/* -----need these codes without forEach function------
         if (i==0) {
             enemy1.style.top = (e1Top-20) + "px";               
         } else if (i==1) {
@@ -152,30 +177,29 @@ window.setInterval(function(){
             enemy5.style.left = (e5Left-20) + "px";
         } else if (i==3) {
             enemy5.style.left = (e5Left+20) + "px";            
-        }      
+        }     
+*/
 },500);
+
 //-------- player lose PH touched by enemy -----------
-let ph = window.setInterval(function(){
-    if ((e1Left+40) > pLeft && pLeft > (e1Left-40) && (e1Top+40) > pTop && pTop > (e1Top-40)) {
-        player.innerText = playerPH--;
-    } else if ((e2Left+40) > pLeft && pLeft > (e2Left-40) && (e2Top+40) > pTop && pTop > (e2Top-40)) {
-        player.innerText = playerPH--;
-    } else if ((e3Left+40) > pLeft && pLeft > (e3Left-40) && (e3Top+40) > pTop && pTop > (e3Top-40)) {
-        player.innerText = playerPH--;
-    } else if ((e4Left+40) > pLeft && pLeft > (e4Left-40) && (e4Top+40) > pTop && pTop > (e4Top-40)) {
-        player.innerText = playerPH--;
-    } else if ((e5Left+40) > pLeft && pLeft > (e5Left-40) && (e5Top+40) > pTop && pTop > (e5Top-40)) {
-        player.innerText = playerPH--;
-    } 
+window.setInterval(function(){
+    enemies.forEach(function(enemy){
+        if (getStyle(enemy, "left")+40 > pLeft && pLeft > getStyle(enemy, "left")-40 && getStyle(enemy, "top")+40 > pTop && pTop > getStyle(enemy, "top")-40){
+            player.innerText = playerPH--;
+        }
+    })
 }, 500);
+
 //-------------player dead--------------------
 window.setInterval(function(){
     if (playerPH == -1) {
-        player.classList.remove("player"); 
-        player.innerHTML = "player dead";
-        window.clearInterval(ph);
+        gameZone.removeChild(player);
+        let div = document.createElement("div");
+        let text = document.createTextNode("player dead");
+        div.appendChild(text);
+        gameZone.appendChild(div);
     }
-},300)
+},1)
 //----------------fin du jeu------------------------
 
 
