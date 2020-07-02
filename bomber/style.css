@@ -12,6 +12,8 @@ body {
     background-color: lightgrey;
     position: relative; 
     margin:auto;
+    color:white;
+    text-align:center;
     
 }
 .player {  
@@ -48,6 +50,7 @@ body {
     background-color: blue; 
     top: 280px;
     left: 160px;
+    
 }
 
 .enemy4 {
