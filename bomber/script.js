@@ -175,8 +175,8 @@ window.setInterval(function(){
         player.innerHTML = "player dead";
         window.clearInterval(ph);
     }
-},200)
-//------player dead----------
+},300)
+//----------------fin du jeu------------------------
 
 
 
@@ -195,75 +195,4 @@ if (bLeft+40 > eLeft > bLeft-40 && bTop+40 > eTop > bTop-40) {
     remove enemy class;
 }
 
------------------------------------
-
-------------------------------------
-// to kill enemies
-IF bomb size doubled when it disappears, 
-
-THEN
-if (bLeft+80 > eLeft > bLeft-40 && bTop+80 > eTop > bTop-40) {
-    remove enemy class;
-}
-
-THEN
-if (bLeft+80 > e1Left > bLeft-40 && bTop+80 > e1Top > bTop-40) {
-    enemy1.classList.remove("enemy1");
-} else if (bLeft+80 > e2Left > bLeft-40 && bTop+80 > e2Top > bTop-40) {
-    enemy2.classList.remove("enemy2");
-} else if (bLeft+80 > e3Left > bLeft-40 && bTop+80 > e3Top > bTop-40) {
-    enemy3.classList.remove("enemy3");
-}  else if (bLeft+80 > e4Left > bLeft-40 && bTop+80 > e4Top > bTop-40) {
-    enemy4.classList.remove("enemy4");
-} else if (bLeft+80 > e5Left > bLeft-40 && bTop+80 > e5Top > bTop-40) {
-    enemy5.classList.remove("enemy5");
-}           
-----------------------------------------
-// to kill enemies
-IF bomb size didnt double when it disappears
-
-THEN
-if (bLeft+40 > eLeft > bLeft-40 && bTop+40 > eTop > bTop-40) {
-    enemy.classList.remove("enemy");
-}
-
-THEN
-if (bLeft+40 > e1Left > bLeft-40 && bTop+40 > e1Top > bTop-40) {
-    enemy1.classList.remove("enemy1");
-    } else if (bLeft+40 > e2Left > bLeft-40 && bTop+40 > e2Top > bTop-40){
-        enemy2.classList.remove("enemy2");
-    } else if (bLeft+40 > e3Left > bLeft-40 && bTop+40 > e3Top > bTop-40){
-        enemy3.classList.remove("enemy3");
-    } else if (bLeft+40 > e4Left > bLeft-40 && bTop+40 > e4Top > bTop-40){
-        enemy4.classList.remove("enemy4");
-    } else if (bLeft+40 > e5Left > bLeft-40 && bTop+40 > e5Top > bTop-40){
-        enemy5.classList.remove("enemy5");
-    }    
--------------------------------------             
-*/
-
-
-/*
-
-// player loser PH if touched by enemy
-document.onkeydown = function(e) {
-
-
-    if ((e1Left+40) > pLeft && pLeft > (e1eft-40) && (e1Top+40) > pTop && pTop > (e1Top-40)) {
-        playerPH--;
-        alert("playerPH: "+playerPH--);
-    } else if ((e2Left+40) > pLeft && pLeft > (e2Left-40) && (e2Top+40) > pTop && pTop > (e2Top-40)) {
-        playerPH--;
-        alert("playerPH: "+playerPH--);
-    } else if ((e3Left+40) > pLeft && pLeft > (e3Left-40) && (e3Top+40) > pTop && pTop > (e3Top-40)) {
-        playerPH--;
-        alert("playerPH: "+playerPH--);
-    } else if ((e4Left+40) > pLeft && pLeft > (e4Left-40) && (e4Top+40) > pTop && pTop > (e4Top-40)) {
-        playerPH--;
-        alert("playerPH: "+playerPH--);
-    } else if ((e5Left+40) > pLeft && pLeft > (e5Left-40) && (e5Top+40) > pTop && pTop > (e5Top-40)) {
-        playerPH--;
-        alert("playerPH: "+playerPH--);
-    }
-}    
 */
