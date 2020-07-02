@@ -11,9 +11,6 @@ let enemy4 = document.querySelector(".enemy4");
 let enemy5 = document.querySelector(".enemy5");
 */
 
-let gWidth = parseInt(window.getComputedStyle(gameZone).getPropertyValue("width"));
-let gHeight = parseInt(window.getComputedStyle(gameZone).getPropertyValue("height"));
-
 let pTop = parseInt(window.getComputedStyle(player).getPropertyValue("top"));
 let pLeft = parseInt(window.getComputedStyle(player).getPropertyValue("left"));
 
@@ -45,7 +42,7 @@ document.onkeydown = function(e){
             player.style.top = pTop + "px";
         }
     } else if (e.keyCode == '40') { // down
-        if (pTop < (gHeight-50)){
+        if (pTop < 620){
             pTop += 20;
             player.style.top = pTop + "px";
         }       
@@ -55,7 +52,7 @@ document.onkeydown = function(e){
             player.style.left = pLeft + "px";
         }  
     } else if (e.keyCode == '39') { // right
-        if (pLeft < (gWidth-50)) {
+        if (pLeft < 620) {
             pLeft += 20;
             player.style.left = pLeft + "px";
         }
@@ -109,20 +106,20 @@ window.setInterval(function(){
     enemies.forEach(function(enemy){
         let i = Math.floor(Math.random() * 4);
         if (i==0) { // up
-            if (getStyle(enemy,"top") > 20 ) {
+            if (getStyle(enemy,"top") > 0 ) {
                 enemy.style.top = getStyle(enemy,"top")-20 + "px"; 
             }                     
         } else if (i==1) { // down
-            if ( getStyle(enemy,"top") < 600 ) {
+            if ( getStyle(enemy,"top") < 620 ) {
                 enemy.style.top = getStyle(enemy,"top")+20 + "px";  
             }           
         } else if (i==2) { // left
-            if (getStyle(enemy,"left") > 20 ) {
+            if (getStyle(enemy,"left") > 0 ) {
                 enemy.style.left = getStyle(enemy,"left")-20 + "px";
             } 
                         
         } else if (i==3) { // right
-            if (getStyle(enemy,"left") < 600){
+            if (getStyle(enemy,"left") < 620){
             enemy.style.left = getStyle(enemy,"left")+20 + "px";   
             }                 
         }; 
@@ -198,11 +195,24 @@ window.setInterval(function(){
         let text = document.createTextNode("player dead");
         div.appendChild(text);
         gameZone.appendChild(div);
-    }
+    } 
 },1)
+
+/*  how to check if enemies are all gone
+window.onload = function(){
+    
+    if (document.body.className.match("hello") == false ) {
+        let div = document.createElement("div");
+        let text = document.createTextNode("player win");
+        div.appendChild(text);
+        gameZone.appendChild(div);
+        console.log("hi");
+    }
+}
+*/
 //----------------fin du jeu------------------------
 
-
+// document.body.classList.contains('my-class-name')
 
 
 
