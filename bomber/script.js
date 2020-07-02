@@ -28,7 +28,6 @@ let e5Left = parseInt(window.getComputedStyle(enemy5).left);
 let playerPH = 10;
 
 //--------------player moves -------------------
-
 document.onkeydown = function(e){
     if (e.keyCode == '38') { // up
         if (pTop > 0){
@@ -50,15 +49,13 @@ document.onkeydown = function(e){
             pLeft += 20;
             player.style.left = pLeft + "px";
         }
-
 //-------------- bomb appears------------       
     } else if (e.keyCode == '32') {                
         bomb.classList.add("bang");
         var bLeft = bomb.style.left = pLeft+"px";
         var bTop = bomb.style.top = pTop+"px";
         bLeft = parseInt(bLeft);
-        bTop = parseInt(bTop);
-     
+        bTop = parseInt(bTop);   
 //-------------- bomb size doubles in 2 seconds--------------
         window.setTimeout(function(){
             bomb.style.width = 100+"px";
@@ -68,34 +65,42 @@ document.onkeydown = function(e){
 //------------ kill enemies here (bomb size actually didnt double when it kills, need to enlarge the condition zone to kill easily)------
             if ((bLeft+110) > e1Left && e1Left > (bLeft-50) && (bTop+110) > e1Top && e1Top > (bTop-50)) {
                 enemy1.classList.remove("enemy1");
+                //enemy1.style.display = "none";
+                //enemy1.style.position = "relative";
+                //enemy1.parentNode.removeChild(enemy1);
             } else if ((bLeft+110) > e2Left && e2Left > (bLeft-50) && (bTop+110) > e2Top && e2Top > (bTop-50)) {
                 enemy2.classList.remove("enemy2");
+                //enemy2.style.display = "none";
+                //enemy2.style.position = "relative";
+                //enemy2.parentNode.removeChild(enemy2);
             } else if ((bLeft+110) > e3Left && e3Left > (bLeft-50) && (bTop+110) > e3Top && e3Top > (bTop-50)) {
                 enemy3.classList.remove("enemy3");
+                //enemy3.style.display = "none";
+                //enemy3.style.position = "relative";
+                //enemy3.parentNode.removeChild(enemy3);
             } else if ((bLeft+110) > e4Left && e4Left > (bLeft-50) && (bTop+110) > e4Top && e4Top > (bTop-50)) {
                 enemy4.classList.remove("enemy4");
+                //enemy4.style.display = "none";
+                //enemy4.style.position = "relative";
+                enemy4.parentNode.removeChild(enemy4);
             } else if ((bLeft+110) > e5Left && e5Left > (bLeft-50) && (bTop+110) > e5Top && e5Top > (bTop-50)) {
-                enemy5.classList.remove("enemy5");          
+                enemy5.classList.remove("enemy5");   
+                //enemy5.style.display = "none";
+                //enemy5.style.position = "relative";
+                //enemy5.parentNode.removeChild(enemy5);       
 //----------player lose ph if exploded by bomb--------------------                                  
-            } 
-            
-            
-
-
-
-
-
+            };           
+            if ((bLeft+110) > pLeft && pLeft > (bLeft-50) && (bTop+110) > pTop && pTop > (bTop-50)) {
+                player.innerText = playerPH--;                                
+            };         
 //----------------- bomb explodes--------------------
-            bomb.classList.remove("bang");
+            bomb.classList.remove("bang");          
 //----------------- if I dont do the following, the next time I throw a bomb the size stays double------------------
             bomb.style.width = 50+"px";
             bomb.style.height= 50+ "px";          
         }, 3000);
     } // end of else if e.keyCode == '32'
 };   // end of document.onkeydown-----------
-
-
-
 //----------------enemies move----------------------
 window.setInterval(function(){
     let i = Math.floor(Math.random() * 4);
@@ -108,7 +113,6 @@ window.setInterval(function(){
         } else if (i==3) {
             enemy1.style.left = (e1Left+20) + "px";             
         }; 
-
         i = Math.floor(Math.random() * 4);
         if (i==0) {              
             enemy2.style.top = (e2Top-20) + "px";              
@@ -119,7 +123,6 @@ window.setInterval(function(){
         } else if (i==3) {               
             enemy2.style.left = (e2Left+20) + "px";                
         };
-
         i = Math.floor(Math.random() * 4);
         if (i==0) {
             enemy3.style.top = (e3Top-20) + "px";
@@ -130,7 +133,6 @@ window.setInterval(function(){
         } else if (i==3) {                
             enemy3.style.left = (e3Left+20) + "px";               
         };
-
         i = Math.floor(Math.random() * 4);
         if (i==0) {             
             enemy4.style.top = (e4Top-20) + "px";              
@@ -141,7 +143,6 @@ window.setInterval(function(){
         } else if (i==3) {               
             enemy4.style.left = (e4Left+20) + "px";              
         };
-
         i = Math.floor(Math.random() * 4);
         if (i==0) {              
             enemy5.style.top = (e5Top-20) + "px";
@@ -150,38 +151,31 @@ window.setInterval(function(){
         } else if (i==2) {
             enemy5.style.left = (e5Left-20) + "px";
         } else if (i==3) {
-            enemy5.style.left = (e5Left+20) + "px";
-        };
-        
+            enemy5.style.left = (e5Left+20) + "px";            
+        }      
 },500);
-
-//-------- player lose PH touched by enemy-----------
+//-------- player lose PH touched by enemy -----------
 let ph = window.setInterval(function(){
     if ((e1Left+40) > pLeft && pLeft > (e1Left-40) && (e1Top+40) > pTop && pTop > (e1Top-40)) {
-        player.innerHTML = playerPH--;
+        player.innerText = playerPH--;
     } else if ((e2Left+40) > pLeft && pLeft > (e2Left-40) && (e2Top+40) > pTop && pTop > (e2Top-40)) {
-        player.innerHTML = playerPH--;
+        player.innerText = playerPH--;
     } else if ((e3Left+40) > pLeft && pLeft > (e3Left-40) && (e3Top+40) > pTop && pTop > (e3Top-40)) {
-        player.innerHTML = playerPH--;
+        player.innerText = playerPH--;
     } else if ((e4Left+40) > pLeft && pLeft > (e4Left-40) && (e4Top+40) > pTop && pTop > (e4Top-40)) {
-        player.innerHTML = playerPH--;
+        player.innerText = playerPH--;
     } else if ((e5Left+40) > pLeft && pLeft > (e5Left-40) && (e5Top+40) > pTop && pTop > (e5Top-40)) {
-        player.innerHTML = playerPH--;
+        player.innerText = playerPH--;
     } 
 }, 500);
-
-
 //-------------player dead--------------------
-
 window.setInterval(function(){
-    if (playerPH == 0) {
+    if (playerPH == -1) {
         player.classList.remove("player"); 
         player.innerHTML = "player dead";
         window.clearInterval(ph);
     }
 },200)
-
-
 //------player dead----------
 
 
