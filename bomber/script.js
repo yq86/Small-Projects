@@ -1,7 +1,3 @@
-//---------------public data zone-----------
-let gameZone = document.querySelector(".game-zone");
-let player = document.querySelector(".player");
-let bomb = document.querySelector("#bomb");
 
 /*  -----need these codes without forEach function------
 let enemy1 = document.querySelector(".enemy1");
@@ -9,12 +5,7 @@ let enemy2 = document.querySelector(".enemy2");
 let enemy3 = document.querySelector(".enemy3");
 let enemy4 = document.querySelector(".enemy4");
 let enemy5 = document.querySelector(".enemy5");
-*/
 
-let pTop = parseInt(window.getComputedStyle(player).getPropertyValue("top"));
-let pLeft = parseInt(window.getComputedStyle(player).getPropertyValue("left"));
-
-/*  -----need these codes without forEach function------
 let e1Top = parseInt(window.getComputedStyle(enemy1).top);
 let e1Left = parseInt(window.getComputedStyle(enemy1).left);
 let e2Top = parseInt(window.getComputedStyle(enemy2).top);
@@ -26,6 +17,15 @@ let e4Left = parseInt(window.getComputedStyle(enemy4).left);
 let e5Top = parseInt(window.getComputedStyle(enemy5).top);
 let e5Left = parseInt(window.getComputedStyle(enemy5).left);
 */
+//---------------public data zone-------------------
+
+let gameZone = document.querySelector(".game-zone");
+let player = document.querySelector(".player");
+let bomb = document.querySelector("#bomb");
+
+let pTop = parseInt(window.getComputedStyle(player).getPropertyValue("top"));
+let pLeft = parseInt(window.getComputedStyle(player).getPropertyValue("left"));
+
 let playerPH = 10;
 
 let enemies = document.querySelectorAll(".enemy");
@@ -96,7 +96,14 @@ document.onkeydown = function(e){
             bomb.classList.remove("bang");          
 //----------------- if I dont do the following, the next time I throw a bomb the size stays double------------------
             bomb.style.width = 50+"px";
-            bomb.style.height= 50+ "px";          
+            bomb.style.height= 50+ "px"; 
+//-----------player win----------
+            if(document.querySelectorAll(".enemy").length ==0){
+                let div = document.createElement("div");
+                let text = document.createTextNode("player win!");
+                div.appendChild(text);
+                gameZone.appendChild(div);
+            } 
         }, 3000); // end of setTimeOut
     } // end of else if e.keyCode == '32'
 };   // end of document.onkeydown-----------
@@ -195,25 +202,9 @@ window.setInterval(function(){
         let text = document.createTextNode("player dead");
         div.appendChild(text);
         gameZone.appendChild(div);
-    } 
+    } ;
 },1)
-
-/*  how to check if enemies are all gone
-window.onload = function(){
-    
-    if (document.body.className.match("hello") == false ) {
-        let div = document.createElement("div");
-        let text = document.createTextNode("player win");
-        div.appendChild(text);
-        gameZone.appendChild(div);
-        console.log("hi");
-    }
-}
-*/
 //----------------fin du jeu------------------------
-
-// document.body.classList.contains('my-class-name')
-
 
 
 
@@ -226,7 +217,7 @@ if (eLeft+40 > pLeft > eLeft-40 && eTop+40 > pTop > eTop-40) {
 }
 
 if (bLeft+40 > eLeft > bLeft-40 && bTop+40 > eTop > bTop-40) {
-    remove enemy class;
+    gameZone.removeChild(enemy);
 }
 
 */
