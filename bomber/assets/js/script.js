@@ -1,4 +1,3 @@
-
 /*  -----need these codes without forEach function------
 let enemy1 = document.querySelector(".enemy1");
 let enemy2 = document.querySelector(".enemy2");
@@ -16,12 +15,13 @@ let e4Top = parseInt(window.getComputedStyle(enemy4).top);
 let e4Left = parseInt(window.getComputedStyle(enemy4).left);
 let e5Top = parseInt(window.getComputedStyle(enemy5).top);
 let e5Left = parseInt(window.getComputedStyle(enemy5).left);
+
+//let bomb = document.querySelector("#bomb");
 */
 //---------------public data zone-------------------
-
+  
 let gameZone = document.querySelector(".game-zone");
 let player = document.querySelector(".player");
-let bomb = document.querySelector("#bomb");
 
 let pTop = parseInt(window.getComputedStyle(player).getPropertyValue("top"));
 let pLeft = parseInt(window.getComputedStyle(player).getPropertyValue("left"));
@@ -56,13 +56,22 @@ document.onkeydown = function(e){
             pLeft += 20;
             player.style.left = pLeft + "px";
         }
-//-------------- bomb appears------------       
-    } else if (e.keyCode == '32') {                
+//-------------- bomb appears (added by js)------------       
+    } else if (e.keyCode == '32') {  
+        let bomb = document.createElement("div");       
+        gameZone.appendChild(bomb);
+        bomb.classList.add("bang");
+        var bLeft = bomb.style.left = pLeft+"px";
+        var bTop = bomb.style.top = pTop+"px";
+        bLeft = parseInt(bLeft);
+        bTop = parseInt(bTop);
+/*                   
         bomb.classList.add("bang");
         var bLeft = bomb.style.left = pLeft+"px";
         var bTop = bomb.style.top = pTop+"px";
         bLeft = parseInt(bLeft);
         bTop = parseInt(bTop);   
+*/       
 //-------------- bomb size doubles in 2 seconds--------------
         window.setTimeout(function(){
             bomb.style.width = 100+"px";
@@ -87,16 +96,33 @@ document.onkeydown = function(e){
             } else if ((bLeft+110) > e5Left && e5Left > (bLeft-50) && (bTop+110) > e5Top && e5Top > (bTop-50)) {
                 gameZone.removeChild(enemy5);  
             */
-//----------player lose ph if exploded by bomb--------------------                                  
-                       
+//----------player lose ph if exploded by bomb--------------------                                                        
             if ((bLeft+110) > pLeft && pLeft > (bLeft-50) && (bTop+110) > pTop && pTop > (bTop-50)) {
                 player.innerText = playerPH--;                                
             };         
 //----------------- bomb explodes--------------------
-            bomb.classList.remove("bang");          
+            bomb.classList.remove("bang");  
+//--------------------bomb sound--------------------------
+            class sound {
+                constructor(src) {
+                    this.sound = document.createElement("audio");
+                    this.sound.src = src;
+                    this.sound.setAttribute("preload", "auto");
+                    this.sound.setAttribute("controls", "none");
+                    this.sound.style.display = "none";
+                    document.body.appendChild(this.sound);
+                    this.play = function () {
+                        this.sound.play();
+                    };
+                }
+            };
+            let mySound = new sound ("assets/voice/bomb.mp3");
+            mySound.play();
+     
 //----------------- if I dont do the following, the next time I throw a bomb the size stays double------------------
             bomb.style.width = 50+"px";
             bomb.style.height= 50+ "px"; 
+       
 //-----------player win----------
             if(document.querySelectorAll(".enemy").length ==0){
                 let div = document.createElement("div");
@@ -204,6 +230,7 @@ window.setInterval(function(){
         gameZone.appendChild(div);
     } ;
 },1)
+
 //----------------fin du jeu------------------------
 
 
